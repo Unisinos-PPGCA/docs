@@ -7,5 +7,5 @@ Documentation is organized using mkdocs. You can find more information about it
 
 ## Update documentation
 
-After changing the documentation, reviewing it and merging into master. Execute
-the command `mkdocs gh-deploy` to update it in github pages.
+After changing the documentation, reviewing it and merging into `master` branch.
+Execute the command `mkdocs gh-deploy` to update it in github pages.
