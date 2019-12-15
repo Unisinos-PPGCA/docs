@@ -1,0 +1,11 @@
+site_name: Unisinos PPGCA
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  logo:
+    icon: cloud
+
+markdown_extensions:
+  - codehilite
