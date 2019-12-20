@@ -14,7 +14,3 @@ Precisa estar rodando o script start_stf.sh
 Túnel:
 ssh <user>@ppgca.unisinos.br -L <porta_local>:<nome_nodo>:<porta_webservice>
 Onde <user> é o teu usuário para acessar o front-end do cluster (não o mini_pc); <porta_local> é a porta do teu PC que tu queres redirecionar para o túnel; <nome_nodo> é o nome ou endereço IP que demos para o mini PC; e <porta_webservice> é a porta que está executando o Web Service no mini PC
-
-
-
-

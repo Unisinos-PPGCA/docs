@@ -13,3 +13,4 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Learning: learning.md
+  - Cluster Access: cluster_access.md
