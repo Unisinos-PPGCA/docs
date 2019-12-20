@@ -9,3 +9,7 @@ theme:
 
 markdown_extensions:
   - codehilite
+
+nav:
+  - Home: index.md
+  - Learning: learning.md
