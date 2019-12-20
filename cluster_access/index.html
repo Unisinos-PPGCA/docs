@@ -36,7 +36,7 @@
     
     
       
-        <title>Learning - Unisinos PPGCA</title>
+        <title>Cluster Access - Unisinos PPGCA</title>
       
     
     
@@ -83,10 +83,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#kubernetes-k8s" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -108,7 +104,7 @@
               Unisinos PPGCA
             </span>
             <span class="md-header-nav__topic">
-              Learning
+              Cluster Access
             </span>
           
         </div>
@@ -186,49 +182,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Learning
-      </label>
-    
-    <a href="./" title="Learning" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../learning/" title="Learning" class="md-nav__link">
       Learning
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network" title="Network" class="md-nav__link">
-    Network
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -236,11 +194,18 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../cluster_access/" title="Cluster Access" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Cluster Access" class="md-nav__link md-nav__link--active">
       Cluster Access
     </a>
+    
   </li>
 
     
@@ -251,48 +216,28 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network" title="Network" class="md-nav__link">
-    Network
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                <h1 id="kubernetes-k8s">Kubernetes (K8S)</h1>
-<h2 id="network">Network</h2>
-<ul>
-<li><a href="https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/">A Guide to the Kubernetes Networking Model</a></li>
-</ul>
+                  <h1>Cluster Access</h1>
+                
+                <p>Para acessar a interface gráfica do miniPC
+1) Fazer um túnel para o front-end do cluster:
+ssh -p 8282 soft5g@ppgca.unisinos.br -L 3390:10.0.200.10:3389
+2) Usar um cliente RDP (Remmina, Cord, etc.) e configurar
+Server: localhost:3390</p>
+<p>Para configurar o serviço Web do free5GC (no miniPC):
+1) via browser: localhost:3000
+2) via browser: localhost:7100
+user: qualquer coisa
+pass: qualquercoisa@qualquer.coisa
+Precisa estar rodando o script start_stf.sh</p>
+<p>Túnel:
+ssh <user>@ppgca.unisinos.br -L <porta_local>:<nome_nodo>:<porta_webservice>
+Onde <user> é o teu usuário para acessar o front-end do cluster (não o mini_pc); <porta_local> é a porta do teu PC que tu queres redirecionar para o túnel; <nome_nodo> é o nome ou endereço IP que demos para o mini PC; e <porta_webservice> é a porta que está executando o Web Service no mini PC</p>
                 
                   
                 
@@ -313,7 +258,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../learning/" title="Learning" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -322,25 +267,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Learning
               </span>
             </div>
           </a>
         
-        
-          <a href="../cluster_access/" title="Cluster Access" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Cluster Access
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
