@@ -14,3 +14,4 @@ nav:
   - Home: index.md
   - Learning: learning.md
   - Cluster Access: cluster_access.md
+  - Minikube Setup: minikube_setup.md
