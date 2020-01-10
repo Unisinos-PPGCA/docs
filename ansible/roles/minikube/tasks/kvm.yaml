@@ -1,0 +1,23 @@
+---
+- name: install kvm
+  become: yes
+  with_items: '{{ minikube_kvm2_pkgs|default([]) }}'
+  loop_control:
+    loop_var: kvm2_pkg
+  package:
+    name: '{{ kvm2_pkg }}'
+    state: present
+
+- name: download docker-machine-driver-kvm2
+  become: yes
+  get_url:
+    url: '{{ minikube_kvm2_driver_url }}'
+    dest: '{{ minikube_install_dir }}/{{ minikube_kvm2_name }}-{{ minikube_version }}'
+    mode: 0755
+
+- name: link installed docker-machine-driver-kvm2
+  become: yes
+  file:
+    src: '{{ minikube_install_dir }}/{{ minikube_kvm2_name }}-{{ minikube_version }}'
+    dest: '{{ minikube_install_dir }}/{{ minikube_kvm2_name }}'
+    state: link

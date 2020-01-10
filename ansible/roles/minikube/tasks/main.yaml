@@ -1,0 +1,20 @@
+---
+- name: download
+  become: yes
+  get_url:
+    url: '{{ minikube_url }}'
+    dest: '{{ minikube_install_target }}'
+    mode: 0755
+
+- name: link
+  become: yes
+  file:
+    src: '{{ minikube_install_target }}'
+    dest: '{{ minikube_install_dir }}/minikube'
+    state: link
+
+- name: install kvm...
+  include: 'kvm.yaml'
+
+- name: install kubectl
+  include: 'kubectl.yaml'

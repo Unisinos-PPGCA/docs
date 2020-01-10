@@ -1,0 +1,6 @@
+---
+- hosts: ppgca
+  roles:
+  - minikube
+  vars:
+    ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q -p 8282 <REPLACE WITH USER@HOST>"'
