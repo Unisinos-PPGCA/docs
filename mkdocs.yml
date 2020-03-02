@@ -14,5 +14,6 @@ nav:
   - Home: index.md
   - Learning: learning.md
   - Cluster Access: cluster_access.md
+  - K8S Set Up: kubernetes.md
   - Minikube Setup: minikube_setup.md
   - Troubleshooting: troubleshooting.md
