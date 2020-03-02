@@ -36,7 +36,7 @@
     
     
       
-        <title>Learning - Unisinos PPGCA</title>
+        <title>K8S Set Up - Unisinos PPGCA</title>
       
     
     
@@ -83,7 +83,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#kubernetes-k8s" tabindex="1" class="md-skip">
+      <a href="#k8s-set-up" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -108,7 +108,7 @@
               Unisinos PPGCA
             </span>
             <span class="md-header-nav__topic">
-              Learning
+              K8S Set Up
             </span>
           
         </div>
@@ -186,56 +186,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Learning
-      </label>
-    
-    <a href="./" title="Learning" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../learning/" title="Learning" class="md-nav__link">
       Learning
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network" title="Network" class="md-nav__link">
-    Network
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operators-pattern" title="Operators Pattern" class="md-nav__link">
-    Operators Pattern
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -255,11 +210,63 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../kubernetes/" title="K8S Set Up" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        K8S Set Up
+      </label>
+    
+    <a href="./" title="K8S Set Up" class="md-nav__link md-nav__link--active">
       K8S Set Up
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-required-packages-in-all-the-nodes" title="Install the required packages in all the nodes" class="md-nav__link">
+    Install the required packages in all the nodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-master" title="Create the Master" class="md-nav__link">
+    Create the Master
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-the-nodes" title="Join the Nodes" class="md-nav__link">
+    Join the Nodes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -308,15 +315,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#network" title="Network" class="md-nav__link">
-    Network
+  <a href="#install-the-required-packages-in-all-the-nodes" title="Install the required packages in all the nodes" class="md-nav__link">
+    Install the required packages in all the nodes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#operators-pattern" title="Operators Pattern" class="md-nav__link">
-    Operators Pattern
+  <a href="#create-the-master" title="Create the Master" class="md-nav__link">
+    Create the Master
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-the-nodes" title="Join the Nodes" class="md-nav__link">
+    Join the Nodes
   </a>
   
 </li>
@@ -338,19 +352,138 @@
               
                 
                 
-                <h1 id="kubernetes-k8s">Kubernetes (K8S)</h1>
-<h2 id="network">Network</h2>
-<ul>
-<li><a href="https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/">A Guide to the Kubernetes Networking Model</a></li>
-</ul>
-<h2 id="operators-pattern">Operators Pattern</h2>
-<ul>
-<li><a href="https://medium.com/@shubhomoybiswas/writing-kubernetes-operator-using-operator-sdk-c2e7f845163a">Writing Kubernetes Operator using Operator SDK</a></li>
-</ul>
-<h1 id="docker-swarm">Docker Swarm</h1>
-<ul>
-<li><a href="https://docs.docker.com/engine/swarm/">Documentation</a></li>
-</ul>
+                <h1 id="k8s-set-up">K8S Set Up</h1>
+<h2 id="install-the-required-packages-in-all-the-nodes">Install the required packages in all the nodes</h2>
+<div class="codehilite"><pre><span></span><span class="c1">#Setup</span>
+<span class="c1">#   1. 3 VMs Ubuntu 16.04.5 or 18.04.1.0, 1 master, 2 nodes.</span>
+<span class="c1">#   2. Static IPs on individual VMs</span>
+<span class="c1">#   3. /etc/hosts hosts file includes name to IP mappings for VMs</span>
+<span class="c1">#   4. Swap is disabled</span>
+<span class="c1">#   5. Take snapshots prior to installations, this way you can install </span>
+<span class="c1">#       and revert to snapshot if needed</span>
+
+<span class="c1">#Disable swap, swapoff then edit your fstab removing any entry for swap partitions</span>
+<span class="c1">#You can recover the space with fdisk. You may want to reboot to ensure your config is ok. </span>
+swapoff -a
+vi /etc/fstab
+
+<span class="c1">#Add Google&#39;s apt repository gpg key</span>
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+
+<span class="c1">#Add the Kubernetes apt repository</span>
+sudo bash -c <span class="s1">&#39;cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list</span>
+<span class="s1">deb https://apt.kubernetes.io/ kubernetes-xenial main</span>
+<span class="s1">EOF&#39;</span>
+
+<span class="c1">#Update the package list and use apt-cache to inspect versions available in the repository</span>
+sudo apt-get update
+
+sudo apt-get install -y docker.io kubelet kubeadm kubectl
+sudo apt-mark hold docker.io kubelet kubeadm kubectl
+
+<span class="c1">#Ensure both are set to start when the system starts up.</span>
+sudo systemctl <span class="nb">enable</span> kubelet.service
+sudo systemctl <span class="nb">enable</span> docker.service
+
+<span class="c1"># Setup Docker daemon. This a change that has been added since the recording of the course.</span>
+sudo bash -c <span class="s1">&#39;cat &gt; /etc/docker/daemon.json &lt;&lt;EOF</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span>
+<span class="s1">  &quot;log-driver&quot;: &quot;json-file&quot;,</span>
+<span class="s1">  &quot;log-opts&quot;: {</span>
+<span class="s1">    &quot;max-size&quot;: &quot;100m&quot;</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;storage-driver&quot;: &quot;overlay2&quot;</span>
+<span class="s1">}</span>
+<span class="s1">EOF&#39;</span>
+
+<span class="c1">#Restart reload the systemd config and docker</span>
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+</pre></div>
+
+
+<h2 id="create-the-master">Create the Master</h2>
+<div class="codehilite"><pre><span></span><span class="c1">#Only on the master, download the yaml files for the pod network.</span>
+<span class="c1">#The calico yaml file has changed since the publication of the course and is now avaialble at the URL below.</span>
+wget https://docs.projectcalico.org/manifests/calico.yaml
+
+
+<span class="c1">#Look inside calico.yaml and find the network range CALICO_IPV4POOL_CIDR, adjust if needed.</span>
+vi calico.yaml
+
+<span class="c1">#Create our kubernetes cluster, specifying a pod network range matching that in calico.yaml!</span>
+sudo kubeadm init --pod-network-cidr<span class="o">=</span><span class="m">192</span>.168.0.0/16
+
+<span class="c1">#Configure our account on the master to have admin access to the API server from a non-privileged account.</span>
+mkdir -p <span class="nv">$HOME</span>/.kube
+sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+
+<span class="c1">#Deploy yaml file for your pod network.</span>
+<span class="c1">#This line of code has be updated since the publication of the course. </span>
+kubectl apply -f calico.yaml
+</pre></div>
+
+
+<h2 id="join-the-nodes">Join the Nodes</h2>
+<div class="codehilite"><pre><span></span><span class="c1">#Disable swap, swapoff then edit your fstab removing any entry for swap partitions</span>
+<span class="c1">#You can recover the space with fdisk. You may want to reboot to ensure your config is ok. </span>
+swapoff -a
+vi /etc/fstab
+
+<span class="c1">#Add the Google&#39;s apt repository gpg key</span>
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+
+<span class="c1">#Add the kuberentes apt repository</span>
+sudo bash -c <span class="s1">&#39;cat &lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list</span>
+<span class="s1">deb https://apt.kubernetes.io/ kubernetes-xenial main</span>
+<span class="s1">EOF&#39;</span>
+
+<span class="c1">#Update the package list</span>
+sudo apt-get update
+
+<span class="c1">#Install the required packages, if needed we can request a specific version</span>
+sudo apt-get install -y docker.io kubelet kubeadm kubectl
+sudo apt-mark hold docker.io kubelet kubeadm kubectl
+
+
+<span class="c1">#Ensure both are set to start when the system starts up.</span>
+sudo systemctl <span class="nb">enable</span> kubelet.service
+sudo systemctl <span class="nb">enable</span> docker.service
+
+<span class="c1">#Setup Docker daemon. This is a change that has been added since the recording of the course.</span>
+sudo bash -c <span class="s1">&#39;cat &gt; /etc/docker/daemon.json &lt;&lt;EOF</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span>
+<span class="s1">  &quot;log-driver&quot;: &quot;json-file&quot;,</span>
+<span class="s1">  &quot;log-opts&quot;: {</span>
+<span class="s1">    &quot;max-size&quot;: &quot;100m&quot;</span>
+<span class="s1">  },</span>
+<span class="s1">  &quot;storage-driver&quot;: &quot;overlay2&quot;</span>
+<span class="s1">}</span>
+<span class="s1">EOF&#39;</span>
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+<span class="c1">#If you didn&#39;t keep the output, on the master, you can get the token.</span>
+kubeadm token list
+
+<span class="c1">#If you need to generate a new token, perhaps the old one timed out/expired.</span>
+kubeadm token create
+
+<span class="c1">#On the master, you can find the ca cert hash.</span>
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt <span class="p">|</span> openssl rsa -pubin -outform der <span class="m">2</span>&gt;/dev/null <span class="p">|</span> openssl dgst -sha256 -hex <span class="p">|</span> sed <span class="s1">&#39;s/^.* //&#39;</span>
+
+<span class="c1">#Using the master (API Server) IP address or name, the token and the cert has, let&#39;s join this Node to our cluster.</span>
+sudo kubeadm join <span class="m">172</span>.16.94.10:6443 <span class="se">\</span>
+    --token 9woi9e.gmuuxnbzd8anltdg <span class="se">\</span>
+    --discovery-token-ca-cert-hash sha256:f9cb1e56fecaf9989b5e882f54bb4a27d56e1e92ef9d56ef19a6634b507d76a9
+
+<span class="c1">#Back on master, this will say NotReady until the networking pod is created on the new node. Has to schedule the pod, then pull the container.</span>
+kubectl get nodes
+</pre></div>
                 
                   
                 
@@ -371,7 +504,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cluster_access/" title="Cluster Access" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -380,19 +513,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Cluster Access
               </span>
             </div>
           </a>
         
         
-          <a href="../cluster_access/" title="Cluster Access" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../minikube_setup/" title="Minikube Setup" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Cluster Access
+                Minikube Setup
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
